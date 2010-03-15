@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<import-steps>
+    <import-step id="lineage.index-various"
+        version="2010-03-15-01"
+        handler="lineage.index.setuphandlers.importVarious"
+        title="Import">
+        <dependency step="content" />
+        lineage.index Setup
+    </import-step>
+</import-steps>

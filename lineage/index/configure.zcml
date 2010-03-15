@@ -1,0 +1,28 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+	xmlns:genericsetup="http://namespaces.zope.org/genericsetup">
+
+    <genericsetup:registerProfile
+        name="default"
+        title="Lineage Index"
+        directory="profiles/default"
+        description="Index for searching content of childsites"
+        provides="Products.GenericSetup.interfaces.EXTENSION" />
+
+    <adapter
+        name="childsite"
+        factory=".index.childsite"/>
+
+    <utility component=".vocabulary.childSiteVocabulary"
+        name="lineage.childsites"/>
+
+    <browser:page
+        for="*"
+        name="childsite"
+        class=".view.ChildsiteView"
+        permission="zope.Public"
+        allowed_attributes="titleForKey"
+        />
+
+</configure>
