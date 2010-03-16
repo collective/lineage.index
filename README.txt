@@ -1,18 +1,18 @@
 Introduction
 ============
 
+
+`lineage.index` is an addon to `collective.lineage`_ that let's you search
+for content within a certain childsite.
+
+.. _`collective.lineage`: http://plone.org/products/collective-lineage/
+
 .. CAUTION::
    lineage.index requires collective.lineage 0.2 or newer
    because it depends on the ``IChildSite`` interface.
 
    Currently there is no egg release for 0.2, hopefully this will
    change soon.
-
-
-`lineage.index` is an addon to `collective.lineage`_ that let's you search
-for content within a certain childsite.
-
-.. _`collective.lineage`: http://plone.org/products/collective-lineage/
 
 
 How does it do it?
