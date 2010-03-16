@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 import os
 
-version = '0.1'
+version = '0.1b1'
 
 setup(name='lineage.index',
       version=version,
@@ -13,7 +13,6 @@ setup(name='lineage.index',
       classifiers=[
         "Framework :: Plone",
         "Programming Language :: Python",
-        "Development Status :: 4 - Beta",
         "Intended Audience :: Developers",
         "License :: OSI Approved :: GNU General Public License (GPL)",
         ],
