@@ -1,6 +1,18 @@
 Changelog
 =========
 
+0.2 (xxxx-xx-xx)
+----------------
+
+- Since Lineage's ChildSite is not implementing IPloneSiteRoot anymore,
+  changed the indexing reference to implementing INavigationRoot
+  [tbesluau]
+
+- For other versions of ATContentType, we need to try and import the interface(s)
+  with and without the 's'
+  [tbesluau]
+
+
 0.1b1 (2010-03-16)
 ------------------
 

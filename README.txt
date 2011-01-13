@@ -1,8 +1,7 @@
 Introduction
 ============
 
-
-`lineage.index` is an addon to `collective.lineage`_ that let's you search
+`lineage.index` is an addon to `collective.lineage`_ that lets you search
 for content within a certain childsite.
 
 .. _`collective.lineage`: http://plone.org/products/collective-lineage/
@@ -15,7 +14,7 @@ for content within a certain childsite.
    change soon.
 
 
-How does it do it?
+How does it work?
 ------------------
 
 `lineage.index` registers an index `childsite` on all items implementing
@@ -23,14 +22,14 @@ How does it do it?
 
 The childsite's id can be used to search for content located in this childsite.
 
-When listing items on the mainportal you can use the metadata-column `childsite`
+When listing items on the main portal you can use the metadata-column `childsite`
 to indicate which childsites the content has been aggregated from.
 
 
 How do I use it?
 ----------------
 
-Once installed, new content get's indexed under the id of it's closest childsite.
+Once installed, new content gets indexed under the id of its closest childsite.
 Existing content requires a catalog update (see `Installation`_).
 
 You can search for content within a childsite using the index::
@@ -68,13 +67,12 @@ go to ``portal_catalog/manage_catalogAdvanced`` and
 click the `Update Catalog` button to populate the index and the catalog metadata.
 
 
-
 Gotchas
 =======
 
-The vocabulary caches all childsite titels until zope is restarted.
+The vocabulary caches all childsite titles until zope is restarted.
 If you add childsites you need to restart zope to make them show up
-in the vocabulary
+in the vocabulary.
 
 
 
