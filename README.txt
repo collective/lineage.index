@@ -6,13 +6,6 @@ for content within a certain childsite.
 
 .. _`collective.lineage`: http://plone.org/products/collective-lineage/
 
-.. CAUTION::
-   lineage.index requires collective.lineage 0.2 or newer
-   because it depends on the ``IChildSite`` interface.
-
-   Currently there is no egg release for 0.2, hopefully this will
-   change soon.
-
 
 How does it work?
 ------------------
@@ -22,7 +15,7 @@ How does it work?
 
 The childsite's id can be used to search for content located in this childsite.
 
-When listing items on the main portal you can use the metadata-column `childsite`
+When listing items on the main portal, you can use the metadata-column `childsite`
 to indicate which childsites the content has been aggregated from.
 
 

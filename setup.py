@@ -1,11 +1,12 @@
 from setuptools import setup, find_packages
 import os
 
-version = '0.1b1'
+version = '0.2'
 
 setup(name='lineage.index',
       version=version,
-      description="Adds an index and metadata that allows to search for content of a collective.lineage childsite",
+      description="Adds an index and metadata that allows to search for "
+                  "content of a collective.lineage childsite",
       long_description=open("README.txt").read() + "\n" +
                        open(os.path.join("docs", "HISTORY.txt")).read(),
       # Get more strings from
