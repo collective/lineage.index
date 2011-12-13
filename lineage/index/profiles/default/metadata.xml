@@ -4,5 +4,7 @@
 	is given in version.txt or setup.py
 	(see http://lists.plone.org/pipermail/product-developers/2008-July/002420.html)-->
     <version>1</version>
-
+    <dependencies>
+       <dependency>profile-collective.lineage:default</dependency>
+    </dependencies>
 </metadata>

@@ -7,8 +7,8 @@ setup(name='lineage.index',
       version=version,
       description="Adds an index and metadata that allows to search for "
                   "content of a collective.lineage childsite",
-      long_description=open("README.txt").read() + "\n" +
-                       open(os.path.join("docs", "HISTORY.txt")).read(),
+      long_description=open("README.rst").read() + "\n" +
+                       open(os.path.join("docs", "HISTORY.rst")).read(),
       # Get more strings from
       # http://pypi.python.org/pypi?%3Aaction=list_classifiers
       classifiers=[
@@ -20,7 +20,7 @@ setup(name='lineage.index',
       keywords='',
       author='Harald Friessnegger',
       author_email='harald at webmeisterei dot com',
-      url='http://plone.org/products/collective-lineage/',
+      url='http://pypi.python.org/pypi/lineage.index',
       license='GPL',
       packages=find_packages(exclude=['ez_setup']),
       namespace_packages=['lineage'],
@@ -29,14 +29,9 @@ setup(name='lineage.index',
       install_requires=[
           'setuptools',
           'collective.lineage',
-          # -*- Extra requirements: -*-
       ],
       entry_points="""
-      # -*- Entry points: -*-
-
       [z3c.autoinclude.plugin]
       target = plone
       """,
-      setup_requires=["PasteScript"],
-      paster_plugins=["ZopeSkel"],
       )
