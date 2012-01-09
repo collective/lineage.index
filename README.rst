@@ -8,7 +8,7 @@ for content within a certain childsite.
 
 
 How does it work?
-------------------
+-----------------
 
 `lineage.index` registers an index `childsite` on all items implementing
 `IATContentType`.
@@ -31,8 +31,16 @@ You can search for content within a childsite using the index::
 
 Each brain has a metadata column telling which childsite it's located in::
 
-    >>> brain.childsite
+    >>> brains[0].childsite
     'subsite1'
+
+If the item comes from the main portal (i.e. not inside a childsite),
+``None`` will be indexed. This allows you to find only content from the
+main portal::
+
+    >>> brains = portal_catalog(childsite=None)
+    >>> brains[0].childsite is None
+    True
 
 There's also a vocabulary `lineage.childsites` listing the available childsites
 with their title.
