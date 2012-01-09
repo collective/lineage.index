@@ -31,7 +31,7 @@ def childsite(obj):
     navroot = getNextChildSite(obj, portal)
 
     if navroot == portal:
-        # ZCatalog seems to use [] as a maker for "don't index object under this value"
-        return []
+        # Index None so that you can get all non-child site content
+        return None
 
     return navroot.id

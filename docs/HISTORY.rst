@@ -4,6 +4,10 @@ Changelog
 0.3 (XXXX-XX-XX)
 ----------------
 
+- Make non child site content be indexed as ``None`` so that "main site"
+  content can be found via this index also.
+  [claytron]
+
 0.2 (2011-04-28)
 ----------------
 
