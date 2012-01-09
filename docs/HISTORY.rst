@@ -1,7 +1,7 @@
 Changelog
 =========
 
-0.3 (XXXX-XX-XX)
+0.3 (2012-01-08)
 ----------------
 
 - Make non child site content be indexed as ``None`` so that "main site"
