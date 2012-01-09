@@ -8,6 +8,24 @@ Changelog
   content can be found via this index also.
   [claytron]
 
+- Make compatible with Plone 4.1
+  [jensens]
+
+- Add ``catalog.xml`` and remove ``setuphandlers`` logic.
+  [jensens]
+
+- Add ``collective.lineage`` to ``metadata.xml`` dependencies.
+  [jensens]
+
+- PEP8 fixes
+  [jensens]
+
+- Change extensions of reStructuredText files so they preview correctly.
+  [jensens]
+
+- Moved code to GitHub
+  [jensens]
+
 0.2 (2011-04-28)
 ----------------
 
