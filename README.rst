@@ -8,7 +8,8 @@ How does it work?
 -----------------
 
 ``lineage.index`` registers an index ``childsite`` on all items
-implementing ``IATContentType``.
+implementing ``Products.CMFCore.interfaces.IContentish`` (which will be
+all Archetypes and Dexterity based content types).
 
 The childsite's id can be used to search for content located in this
 childsite.

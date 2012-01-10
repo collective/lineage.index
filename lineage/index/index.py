@@ -1,8 +1,5 @@
 from plone.indexer.decorator import indexer
-try:
-    from Products.ATContentTypes.interfaces.interfaces import IATContentType
-except:
-    from Products.ATContentTypes.interface.interfaces import IATContentType
+from Products.CMFCore.interfaces import IContentish
 from Products.CMFCore.utils import getToolByName
 from plone.app.layout.navigation.interfaces import INavigationRoot
 from Acquisition import aq_base
@@ -22,7 +19,7 @@ def getNextChildSite(context, portal):
     return obj
 
 
-@indexer(IATContentType)
+@indexer(IContentish)
 def childsite(obj):
     """return the id of the closest INavigationRoot up the hierarchy or None if
     there is no subsite

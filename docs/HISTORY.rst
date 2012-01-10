@@ -4,7 +4,9 @@ Changelog
 0.4 (XXXX-XX-XX)
 ----------------
 
-
+- Use ``IContentish`` instead of ``IATContentType`` to ensure that all
+  CMF, AT and Dexterity based content gets indexed properly.
+  [claytron]
 
 0.3 (2012-01-08)
 ----------------
