@@ -3,6 +3,7 @@ from zope.schema.interfaces import IVocabularyFactory
 from zope.component import getUtility
 from plone.memoize.view import memoize_contextless
 
+
 class ChildsiteView(BrowserView):
 
     @memoize_contextless

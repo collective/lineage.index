@@ -4,6 +4,9 @@ Changelog
 0.4 (XXXX-XX-XX)
 ----------------
 
+- PEP8 fixes
+  [claytron]
+
 - Use ``IContentish`` instead of ``IATContentType`` to ensure that all
   CMF, AT and Dexterity based content gets indexed properly.
   [claytron]
