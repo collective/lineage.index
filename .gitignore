@@ -4,6 +4,7 @@ eggs/
 develop-eggs/
 parts/
 src/*.egg-info
+lineage.index.egg-info/
 *.pyc
 .project
 .installed.cfg
