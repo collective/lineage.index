@@ -15,10 +15,19 @@ def childSiteVocabulary(context):
     """
     cat = getToolByName(context, 'portal_catalog')
 
-    brains = cat(object_provides=IChildSite.__identifier__,
-                 sort_on='sortable_title')
-    terms = [SimpleTerm(value=brain.id, token=brain.id, title=brain.Title)
-             for brain in brains]
+    brains = cat(
+        object_provides=IChildSite.__identifier__,
+        sort_on='sortable_title'
+    )
+
+    set_brains = []
+    terms = []
+    for brain in brains:
+        val = brain.id
+        if val not in set_brains:
+            # vocabulary values and tokens must be unique
+            set_brains.append(val)
+            terms.append(SimpleTerm(value=val, token=val, title=brain.Title))
     return SimpleVocabulary(terms)
 
 

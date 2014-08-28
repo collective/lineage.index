@@ -1,6 +1,14 @@
 Changelog
 =========
 
+0.5 (unreleased)
+----------------
+
+- Don't let the ``lineage.childsites`` vocabulary fail, if there are multiple
+  childsites with the same id.
+  [thet]
+
+
 0.4 (2012-01-10)
 ----------------
 
