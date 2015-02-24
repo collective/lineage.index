@@ -3,7 +3,7 @@ from setuptools import find_packages
 from setuptools import setup
 import os
 
-version = '0.5.dev3'
+version = '0.5.dev4'
 
 setup(
     name='lineage.index',
@@ -27,7 +27,6 @@ setup(
     license='GPL',
     packages=find_packages('src'),
     package_dir={'': 'src'},
-    packages=find_packages(exclude=['ez_setup']),
     namespace_packages=['lineage'],
     include_package_data=True,
     zip_safe=False,
