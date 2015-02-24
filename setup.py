@@ -7,8 +7,8 @@ setup(name='lineage.index',
       version=version,
       description="Adds an index and metadata that allows to search for "
                   "content of a collective.lineage childsite",
-      long_description=open("README.rst").read() + "\n" +
-                       open(os.path.join("docs", "HISTORY.rst")).read(),
+      long_description=open("README.rst").read() + "\n" + 
+                       open("CHANGES.rst").read(),
       # Get more strings from
       # http://pypi.python.org/pypi?%3Aaction=list_classifiers
       classifiers=[
