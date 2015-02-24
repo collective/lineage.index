@@ -1,7 +1,9 @@
-from setuptools import setup, find_packages
+# -*- coding: utf-8 -*-
+from setuptools import find_packages
+from setuptools import setup
 import os
 
-version = '0.5.dev2'
+version = '0.5.dev3'
 
 setup(
     name='lineage.index',
