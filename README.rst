@@ -4,6 +4,7 @@ Introduction
 ``lineage.index`` is an addon to `collective.lineage`_ that lets you
 search for content within a certain childsite.
 
+
 How does it work?
 -----------------
 
@@ -17,6 +18,7 @@ childsite.
 When listing items on the main portal, you can use the metadata-column
 ``childsite`` to indicate which childsites the content has been
 aggregated from.
+
 
 How do I use it?
 ----------------

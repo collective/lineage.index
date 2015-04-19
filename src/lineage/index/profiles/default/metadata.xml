@@ -1,10 +1,7 @@
 <?xml version="1.0"?>
 <metadata>
-	<!-- increment this number if gs needs to run the import steps again. this is not the version number which
-	is given in version.txt or setup.py
-	(see http://lists.plone.org/pipermail/product-developers/2008-July/002420.html)-->
-    <version>1</version>
-    <dependencies>
-       <dependency>profile-collective.lineage:default</dependency>
-    </dependencies>
+  <version>1</version>
+  <dependencies>
+    <dependency>profile-collective.lineage:default</dependency>
+  </dependencies>
 </metadata>

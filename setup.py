@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 from setuptools import find_packages
 from setuptools import setup
-import os
 
 version = '0.5.dev4'
 
@@ -10,16 +9,16 @@ setup(
     version=version,
     description="Adds an index and metadata that allows to search for "
                 "content of a collective.lineage childsite",
-    long_description=open("README.rst").read() + "\n" +
-                     open("CHANGES.rst").read(),
-    # Get more strings from
-    # http://pypi.python.org/pypi?%3Aaction=list_classifiers
+    long_description='{0}/n{1}'.format(
+        open("README.rst").read(),
+        open("CHANGES.rst").read()
+    ),
     classifiers=[
-      "Framework :: Plone",
-      "Programming Language :: Python",
-      "Intended Audience :: Developers",
-      "License :: OSI Approved :: GNU General Public License (GPL)",
-      ],
+        "Framework :: Plone",
+        "Programming Language :: Python",
+        "Intended Audience :: Developers",
+        "License :: OSI Approved :: GNU General Public License (GPL)",
+    ],
     keywords='',
     author='Harald Friessnegger',
     author_email='harald at webmeisterei dot com',
