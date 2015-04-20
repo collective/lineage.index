@@ -1,5 +1,4 @@
 from Products.CMFCore.utils import getToolByName
-from collective.lineage.interfaces import IChildSite
 import logging
 
 logger = logging.getLogger('lineage.index')
@@ -11,21 +10,13 @@ def upgrade_uuid(context):
     paths.
     """
     index_id = 'childsite'
-
     cat = getToolByName(context, 'portal_catalog')
-    cat.manage_clearIndex([index_id])
-
-    # Don't reindex the whole catalog, but only the childsites. These are usaly
-    # much less than all the catalog objects together. Thus, this upgrade step
-    # runs fast.
-    brains = cat(
-        object_provides=IChildSite.__identifier__,
-        path=cat.__parent__.getPhysicalPath()
-    )
-    for brain in brains:
-        ob = brain.getObject()
+    cat.delColumn(index_id)
+    cat.addColumn(index_id)
+    res = cat.searchResults()
+    for cnt, it in enumerate(res):
+        ob = it.getObject()
         ob.reindexObject(idxs=(index_id,))
-        logger.info("Reindex {0} index for {1}.".format(
-            index_id,
-            ob.absolute_url()
-        ))
+        if cnt % 100 == 0:
+            # 100-batch
+            logger.info("Reindex next batch, starting with {0}".format(cnt))
