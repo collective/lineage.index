@@ -27,4 +27,13 @@
       description="Index for searching content of childsites"
       provides="Products.GenericSetup.interfaces.EXTENSION"/>
 
+  <genericsetup:upgradeStep
+      source="1"
+      destination="2"
+      title="Upgrade to UUID based indexing."
+      description="Rebuild the catalog to reindex UUID values instead the id."
+      profile="lineage.index:default"
+      handler=".upgrades.upgrade_uuid"
+      />
+
 </configure>

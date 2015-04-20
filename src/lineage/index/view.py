@@ -8,7 +8,7 @@ class ChildsiteView(BrowserView):
 
     @memoize_contextless
     def titleForKey(self, key):
-        """returns the childsite's title for their vocabulary value.
+        """Returns the childsite's title for their vocabulary value.
         """
         util = getUtility(IVocabularyFactory, 'lineage.childsites')
         vocab = util(self.context)

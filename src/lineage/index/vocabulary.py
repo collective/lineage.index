@@ -3,7 +3,8 @@ from collective.lineage.interfaces import IChildSite
 from plone.memoize import ram
 from zope.interface.declarations import directlyProvides
 from zope.schema.interfaces import IVocabularyFactory
-from zope.schema.vocabulary import SimpleTerm, SimpleVocabulary
+from zope.schema.vocabulary import SimpleTerm
+from zope.schema.vocabulary import SimpleVocabulary
 
 
 # cache until next zope restart
@@ -15,15 +16,13 @@ def childSiteVocabulary(context):
     cat = getToolByName(context, 'portal_catalog')
     brains = cat(
         object_provides=IChildSite.__identifier__,
+        path=cat.__parent__.getPhysicalPath(),
         sort_on='sortable_title'
     )
-    set_brains = []
-    terms = []
-    for brain in brains:
-        val = brain.id
-        if val not in set_brains:
-            # vocabulary values and tokens must be unique
-            set_brains.append(val)
-            terms.append(SimpleTerm(value=val, token=val, title=brain.Title))
+    terms = [
+        SimpleTerm(value=brain.UID, token=brain.UID, title=brain.Title)
+        for brain in brains
+    ]
     return SimpleVocabulary(terms)
+
 directlyProvides(childSiteVocabulary, IVocabularyFactory)

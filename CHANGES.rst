@@ -4,8 +4,11 @@ Changelog
 0.5 (unreleased)
 ----------------
 
-- Don't let the ``lineage.childsites`` vocabulary fail, if there are multiple
-  childsites with the same id.
+- Upgrade to ``UUID`` basd indexing instead of using the ``id``. The id is not
+  unique and causes problems when multiple lineage subsites with the same id
+  are registered. Furthermore, the uuid can be used to retrieve the lineage
+  childsite object without traversing up the content tree. A upgrade step is
+  included.
   [thet]
 
 

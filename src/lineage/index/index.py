@@ -4,6 +4,7 @@ from Products.CMFCore.utils import getToolByName
 from Products.CMFPlone import utils
 from collective.lineage.interfaces import IChildSite
 from plone.indexer.decorator import indexer
+from plone.uuid.interfaces import IUUID
 
 
 def getNextChildSite(context, portal):
@@ -29,4 +30,4 @@ def childsite(obj):
         # Index None so that you can get all non-child site content
         return None
 
-    return childsite.id
+    return IUUID(childsite)
