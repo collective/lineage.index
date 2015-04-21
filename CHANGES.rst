@@ -4,6 +4,10 @@ Changelog
 0.5 (unreleased)
 ----------------
 
+- Add ``chilsiteForContext`` method, which returns the childsite UUID for a
+  given context.
+  [thet]
+
 - Upgrade to ``UUID`` basd indexing instead of using the ``id``. The id is not
   unique and causes problems when multiple lineage subsites with the same id
   are registered. Furthermore, the uuid can be used to retrieve the lineage
