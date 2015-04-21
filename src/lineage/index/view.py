@@ -25,7 +25,7 @@ class ChildsiteView(BrowserView):
         """
         childsite = ''
         cat = getToolByName(self.context, 'portal_catalog')
-        res = cat.searchResults(UID=IUUID(item), path='/')  # TODO: get portal root
+        res = cat.searchResults(UID=IUUID(item, None), path='/')  # TODO: get portal root. TODO: handle occurrences
         if res:
             childsite = res[0].childsite
         return childsite
