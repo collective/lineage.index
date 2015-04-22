@@ -1,9 +1,16 @@
+from Acquisition import aq_parent
 from Products.CMFCore.utils import getToolByName
 from Products.Five.browser import BrowserView
 from plone.memoize.view import memoize_contextless
 from plone.uuid.interfaces import IUUID
 from zope.component import getUtility
 from zope.schema.interfaces import IVocabularyFactory
+
+# Special cases
+try:
+    from plone.event.interfaces import IOccurrence
+except ImportError:
+    IOccurrence = None
 
 
 class ChildsiteView(BrowserView):
@@ -24,8 +31,10 @@ class ChildsiteView(BrowserView):
         brain in the catalog.
         """
         childsite = ''
+        if IOccurrence and IOccurrence.providedBy(item):
+            item = aq_parent(item)
         cat = getToolByName(self.context, 'portal_catalog')
-        res = cat.searchResults(UID=IUUID(item, None), path='/')  # TODO: get portal root. TODO: handle occurrences
+        res = cat.searchResults(UID=IUUID(item, None), path='/')  # TODO: get portal root
         if res:
             childsite = res[0].childsite
         return childsite
