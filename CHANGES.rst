@@ -4,6 +4,9 @@ Changelog
 0.5 (unreleased)
 ----------------
 
+- Depend on ``plone.api`` and use it to get the portal object.
+  [thet]
+
 - Add ``chilsiteForContext`` method, which returns the childsite UUID for a
   given context.
   [thet]

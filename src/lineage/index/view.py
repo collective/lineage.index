@@ -5,6 +5,8 @@ from plone.memoize.view import memoize_contextless
 from plone.uuid.interfaces import IUUID
 from zope.component import getUtility
 from zope.schema.interfaces import IVocabularyFactory
+import plone.api
+
 
 # Special cases
 try:
@@ -33,8 +35,9 @@ class ChildsiteView(BrowserView):
         childsite = ''
         if IOccurrence and IOccurrence.providedBy(item):
             item = aq_parent(item)
+        portal = plone.api.portal.get()
         cat = getToolByName(self.context, 'portal_catalog')
-        res = cat.searchResults(UID=IUUID(item, None), path='/')  # TODO: get portal root
+        res = cat(UID=IUUID(item, None), path=portal.getPhysicalPath())
         if res:
             childsite = res[0].childsite
         return childsite

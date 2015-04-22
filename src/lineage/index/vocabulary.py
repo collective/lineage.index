@@ -5,6 +5,7 @@ from zope.interface.declarations import directlyProvides
 from zope.schema.interfaces import IVocabularyFactory
 from zope.schema.vocabulary import SimpleTerm
 from zope.schema.vocabulary import SimpleVocabulary
+import plone.api
 
 
 # cache until next zope restart
@@ -14,9 +15,10 @@ def childSiteVocabulary(context):
     """returns the available childsites of the portal
     """
     cat = getToolByName(context, 'portal_catalog')
+    portal = plone.api.portal.get()
     brains = cat(
         object_provides=IChildSite.__identifier__,
-        path=cat.__parent__.getPhysicalPath(),
+        path=portal.getPhysicalPath(),
         sort_on='sortable_title'
     )
     terms = [
