@@ -13,9 +13,8 @@ def upgrade_uuid(context):
     cat = getToolByName(context, 'portal_catalog')
     cat.delColumn(index_id)
     cat.addColumn(index_id)
-    res = cat.searchResults()
-    for cnt, it in enumerate(res):
-        ob = it.getObject()
+    res = (it.getObject() for it in cat.searchResults())  # generator expr.
+    for cnt, ob in enumerate(res):
         ob.reindexObject(idxs=(index_id,))
         if cnt % 100 == 0:
             # 100-batch
