@@ -32,6 +32,7 @@ setup(
     install_requires=[
         'setuptools',
         'collective.lineage',
+        'plone.api',
     ],
     entry_points="""
     [z3c.autoinclude.plugin]

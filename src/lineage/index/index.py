@@ -1,13 +1,14 @@
 from Acquisition import aq_base
 from Products.CMFCore.interfaces import IContentish
-from Products.CMFCore.utils import getToolByName
 from Products.CMFPlone import utils
 from collective.lineage.interfaces import IChildSite
 from plone.indexer.decorator import indexer
+from plone.uuid.interfaces import IUUID
+import plone.api
 
 
 def getNextChildSite(context, portal):
-    """Returns the nearest parent object implementing INavigationRoot.
+    """Returns the nearest parent object implementing IChildSite.
     Code borrowed from plone.app.layout.navigation.root.getNavigationRootObject
     """
     obj = context
@@ -19,14 +20,14 @@ def getNextChildSite(context, portal):
 
 @indexer(IContentish)
 def childsite(obj):
-    """Return the id of the closest INavigationRoot up the hierarchy or None if
+    """Return the uuid of the closest childsite up the hierarchy or None if
     there is no subsite.
     """
-    portal = getToolByName(obj, 'portal_url').getPortalObject()
+    portal = plone.api.portal.get()
     childsite = getNextChildSite(obj, portal)
 
     if childsite == portal:
         # Index None so that you can get all non-child site content
         return None
 
-    return childsite.id
+    return IUUID(childsite)
