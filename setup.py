@@ -2,7 +2,7 @@
 from setuptools import find_packages
 from setuptools import setup
 
-version = '0.5.dev4'
+version = '0.5'
 
 setup(
     name='lineage.index',

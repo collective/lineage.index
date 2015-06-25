@@ -1,7 +1,7 @@
 Changelog
 =========
 
-0.5 (unreleased)
+0.5 (2015-06-25)
 ----------------
 
 - Depend on ``plone.api`` and use it to get the portal object.
