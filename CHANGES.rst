@@ -4,7 +4,8 @@ Changelog
 0.6 (unreleased)
 ----------------
 
-- Nothing changed yet.
+- Add uninstall profile.
+  [thet]
 
 
 0.5 (2015-06-25)

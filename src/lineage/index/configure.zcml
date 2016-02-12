@@ -26,6 +26,12 @@
       directory="profiles/default"
       description="Index for searching content of childsites"
       provides="Products.GenericSetup.interfaces.EXTENSION"/>
+  <genericsetup:registerProfile
+      name="uninstall"
+      title="Lineage Index (uninstall)"
+      directory="profiles/uninstall"
+      description="Uninstalls the lineage.index add-on."
+      provides="Products.GenericSetup.interfaces.EXTENSION"/>
 
   <genericsetup:upgradeStep
       source="1"

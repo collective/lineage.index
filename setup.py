@@ -2,17 +2,21 @@
 from setuptools import find_packages
 from setuptools import setup
 
+
 version = '0.6.dev0'
+short_description = u"Adds an index and metadata that allows to search for "\
+    u"content of a collective.lineage childsite"
+long_description = u'\n\n'.join([
+    open('README.rst').read(),
+    open('CHANGES.rst').read(),
+])
+
 
 setup(
     name='lineage.index',
     version=version,
-    description="Adds an index and metadata that allows to search for "
-                "content of a collective.lineage childsite",
-    long_description='{0}/n{1}'.format(
-        open("README.rst").read(),
-        open("CHANGES.rst").read()
-    ),
+    description=short_description,
+    long_description=long_description,
     classifiers=[
         "Framework :: Plone",
         "Programming Language :: Python",
