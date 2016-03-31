@@ -28,6 +28,7 @@ def childsite(obj):
 
     if childsite == portal:
         # Index None so that you can get all non-child site content
+        # TODO: use marker instead of None
         return None
 
     return IUUID(childsite)
