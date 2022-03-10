@@ -21,17 +21,23 @@ How do I use it?
 Once installed, new content gets indexed under the id of its closest childsite.
 Existing content requires a catalog update (see `Installation`_).
 
-You can search for content within a childsite using the index::
+You can search for content within a childsite using the index:
+
+.. code-block:: python
 
     brains = portal_catalog(childsite='subsite1')
 
-Each brain has a metadata column telling which childsite it's located in::
+Each brain has a metadata column telling which childsite it's located in:
+
+.. code-block:: python
 
     >>> brains[0].childsite
     'subsite1'
 
 If the item comes from the main portal (i.e. not inside a childsite), ``None`` will be indexed.
-This allows you to find only content from the main portal::
+This allows you to find only content from the main portal:
+
+.. code-block:: python
 
     >>> brains = portal_catalog(childsite=None)
     >>> brains[0].childsite is None
@@ -39,7 +45,9 @@ This allows you to find only content from the main portal::
 
 There's also a vocabulary ``lineage.childsites`` listing the available childsites with their title.
 
-To show the title of the subsite of a brain you can use the utility view::
+To show the title of the subsite of a brain you can use the utility view:
+
+.. code-block:: html
 
     <ul tal:define="util context/@@childsite">
         <li tal:repeat="item folderContents">
