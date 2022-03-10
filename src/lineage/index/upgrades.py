@@ -20,4 +20,4 @@ def upgrade_uuid(context):
         ob.reindexObject(idxs=(index_id,))
         if cnt % 100 == 0:
             # 100-batch
-            logger.info("Reindex next batch, starting with {0}".format(cnt))
+            logger.info(f"Reindex next batch, starting with {cnt}")
