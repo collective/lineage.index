@@ -1,55 +1,53 @@
 Introduction
 ============
 
-``lineage.index`` is an addon to `collective.lineage`_ that lets you
-search for content within a certain childsite.
+``lineage.index`` is an addon to `collective.lineage <http://plone.org/products/collective-lineage/>`_ that lets you search for content within a certain childsite.
 
 
 How does it work?
 -----------------
 
-``lineage.index`` registers an index ``childsite`` on all items
-implementing ``Products.CMFCore.interfaces.IContentish`` (which will be
-all Archetypes and Dexterity based content types).
+``lineage.index`` registers an index ``childsite`` on all items implementing ``Products.CMFCore.interfaces.IContentish``
+(which will be all Archetypes and Dexterity based content types).
 
-The childsite's id can be used to search for content located in this
-childsite.
+The childsite's id can be used to search for content located in this childsite.
 
-When listing items on the main portal, you can use the metadata-column
-``childsite`` to indicate which childsites the content has been
-aggregated from.
+When listing items on the main portal, you can use the metadata-column ``childsite`` to indicate which childsites the content has been aggregated from.
 
 
 How do I use it?
 ----------------
 
-Once installed, new content gets indexed under the id of its closest
-childsite. Existing content requires a catalog update (see
-`Installation`_).
+Once installed, new content gets indexed under the id of its closest childsite.
+Existing content requires a catalog update (see `Installation`_).
 
-You can search for content within a childsite using the index::
+You can search for content within a childsite using the index:
+
+.. code-block:: python
 
     brains = portal_catalog(childsite='subsite1')
 
-Each brain has a metadata column telling which childsite it's located
-in::
+Each brain has a metadata column telling which childsite it's located in:
+
+.. code-block:: python
 
     >>> brains[0].childsite
     'subsite1'
 
-If the item comes from the main portal (i.e. not inside a childsite),
-``None`` will be indexed. This allows you to find only content from the
-main portal::
+If the item comes from the main portal (i.e. not inside a childsite), ``None`` will be indexed.
+This allows you to find only content from the main portal:
+
+.. code-block:: python
 
     >>> brains = portal_catalog(childsite=None)
     >>> brains[0].childsite is None
     True
 
-There's also a vocabulary ``lineage.childsites`` listing the available
-childsites with their title.
+There's also a vocabulary ``lineage.childsites`` listing the available childsites with their title.
 
-To show the title of the subsite of a brain you can use the utility
-view::
+To show the title of the subsite of a brain you can use the utility view:
+
+.. code-block:: html
 
     <ul tal:define="util context/@@childsite">
         <li tal:repeat="item folderContents">
@@ -61,22 +59,16 @@ view::
 Installation
 ============
 
-Simply add ``lineage.index`` to your buildout eggs (no zcml slug is
-needed thanks to z3c.autoinclude).
+Simply add ``lineage.index`` to your buildout eggs (no zcml slug is needed thanks to z3c.autoinclude).
 
-Quickinstall ``Lineage Index``.
+Install ``Lineage Index`` .
 
-In case you already have childsites and content that shall be indexed
-go to ``portal_catalog/manage_catalogAdvanced`` and click the
-``Update Catalog`` button to populate the index and the catalog
-metadata.
+In case you already have childsites and content that shall be indexed go to ``portal_catalog/manage_catalogAdvanced``.
+Then click the ``Update Catalog`` button to populate the index and the catalog metadata.
 
 Gotchas
 =======
 
 The vocabulary caches all childsite titles until zope is restarted.
-If you add childsites you need to restart zope to make them show up
-in the vocabulary.
-
-.. _`collective.lineage`: http://plone.org/products/collective-lineage/
+If you add childsites you need to restart zope to make them show up in the vocabulary.
 

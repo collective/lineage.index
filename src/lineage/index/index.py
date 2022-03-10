@@ -1,9 +1,11 @@
 from Acquisition import aq_base
-from Products.CMFCore.interfaces import IContentish
-from Products.CMFPlone import utils
 from collective.lineage.interfaces import IChildSite
+from plone.dexterity.interfaces import IDexterityContent
 from plone.indexer.decorator import indexer
 from plone.uuid.interfaces import IUUID
+from Products.CMFCore.interfaces import IContentish
+from Products.CMFPlone import utils
+
 import plone.api
 
 
@@ -12,9 +14,10 @@ def getNextChildSite(context, portal):
     Code borrowed from plone.app.layout.navigation.root.getNavigationRootObject
     """
     obj = context
-    while not IChildSite.providedBy(obj) and\
-            aq_base(obj) is not aq_base(portal):
+    while not IChildSite.providedBy(obj) and aq_base(obj) is not aq_base(portal):
         obj = utils.parent(obj)
+        if obj is None:
+            return
     return obj
 
 
@@ -27,8 +30,12 @@ def childsite(obj):
     childsite = getNextChildSite(obj, portal)
 
     if childsite == portal:
-        # Index None so that you can get all non-child site content
-        # TODO: use marker instead of None
-        return None
+        if IDexterityContent.providedBy(portal):
+            return IUUID(portal)
+        else:
+            return None
+
+    if childsite is None:
+        raise AttributeError("no childsite found")
 
     return IUUID(childsite)
