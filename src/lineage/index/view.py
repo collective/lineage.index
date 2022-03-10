@@ -1,10 +1,11 @@
 from Acquisition import aq_parent
-from Products.CMFCore.utils import getToolByName
-from Products.Five.browser import BrowserView
 from plone.memoize.view import memoize_contextless
 from plone.uuid.interfaces import IUUID
+from Products.CMFCore.utils import getToolByName
+from Products.Five.browser import BrowserView
 from zope.component import getUtility
 from zope.schema.interfaces import IVocabularyFactory
+
 import plone.api
 
 

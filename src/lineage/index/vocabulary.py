@@ -1,10 +1,11 @@
-from Products.CMFCore.utils import getToolByName
 from collective.lineage.interfaces import IChildSite
 from plone.memoize import ram
+from Products.CMFCore.utils import getToolByName
 from zope.interface.declarations import directlyProvides
 from zope.schema.interfaces import IVocabularyFactory
 from zope.schema.vocabulary import SimpleTerm
 from zope.schema.vocabulary import SimpleVocabulary
+
 import plone.api
 
 

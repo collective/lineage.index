@@ -1,10 +1,11 @@
 from Acquisition import aq_base
-from Products.CMFCore.interfaces import IContentish
-from Products.CMFPlone import utils
 from collective.lineage.interfaces import IChildSite
+from plone.dexterity.interfaces import IDexterityContent
 from plone.indexer.decorator import indexer
 from plone.uuid.interfaces import IUUID
-from plone.dexterity.interfaces import IDexterityContent
+from Products.CMFCore.interfaces import IContentish
+from Products.CMFPlone import utils
+
 import plone.api
 
 
