@@ -1,8 +1,14 @@
 Changelog
 =========
 
-0.6 (unreleased)
+1.0 (unreleased)
 ----------------
+
+- Fix recursion bug, if a context has no acquisition parent.
+  [zworkb]
+
+- Minimal modernisation: black, isort, pyupgrade, more metadata, readme edited.
+  [jensens]
 
 - Add uninstall profile.
   [thet]
