@@ -13,8 +13,7 @@ def getNextChildSite(context, portal):
     Code borrowed from plone.app.layout.navigation.root.getNavigationRootObject
     """
     obj = context
-    while not IChildSite.providedBy(obj) and\
-            aq_base(obj) is not aq_base(portal):
+    while not IChildSite.providedBy(obj) and aq_base(obj) is not aq_base(portal):
         obj = utils.parent(obj)
         if obj is None:
             return
@@ -34,7 +33,7 @@ def childsite(obj):
             return IUUID(portal)
         else:
             return None
-    
+
     if childsite is None:
         raise AttributeError("no childsite found")
 

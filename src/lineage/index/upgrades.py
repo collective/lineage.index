@@ -1,7 +1,7 @@
 from Products.CMFCore.utils import getToolByName
 import logging
 
-logger = logging.getLogger('lineage.index')
+logger = logging.getLogger("lineage.index")
 
 
 def upgrade_uuid(context):
@@ -9,8 +9,8 @@ def upgrade_uuid(context):
     it possible to have multiple childsites with the same id in different
     paths.
     """
-    index_id = 'childsite'
-    cat = getToolByName(context, 'portal_catalog')
+    index_id = "childsite"
+    cat = getToolByName(context, "portal_catalog")
     cat.delColumn(index_id)
     cat.addColumn(index_id)
     res = (it.getObject() for it in cat.searchResults())  # generator expr.

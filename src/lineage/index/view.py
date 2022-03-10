@@ -16,12 +16,10 @@ except ImportError:
 
 
 class ChildsiteView(BrowserView):
-
     @memoize_contextless
     def titleForKey(self, key):
-        """Returns the childsite's title for their vocabulary value.
-        """
-        util = getUtility(IVocabularyFactory, 'lineage.childsites')
+        """Returns the childsite's title for their vocabulary value."""
+        util = getUtility(IVocabularyFactory, "lineage.childsites")
         vocab = util(self.context)
         try:
             return vocab.getTerm(key).title
@@ -32,11 +30,11 @@ class ChildsiteView(BrowserView):
         """Returns the childsite UUID for a context object by looking up it's
         brain in the catalog.
         """
-        childsite = ''
+        childsite = ""
         if IOccurrence and IOccurrence.providedBy(item):
             item = aq_parent(item)
         portal = plone.api.portal.get()
-        cat = getToolByName(self.context, 'portal_catalog')
+        cat = getToolByName(self.context, "portal_catalog")
         res = cat(UID=IUUID(item, None), path=portal.getPhysicalPath())
         if res:
             childsite = res[0].childsite
