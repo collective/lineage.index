@@ -39,7 +39,7 @@ setup(
     ],
     keywords="",
     author="Harald Friessnegger",
-    author_email="harald at webmeisterei dot com",
+    author_email="harald@webmeisterei.com",
     url="http://github/com/collective/lineage.index",
     license="GPL",
     packages=find_packages("src"),
