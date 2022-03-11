@@ -7,10 +7,9 @@ Introduction
 How does it work?
 -----------------
 
-``lineage.index`` registers an index ``childsite`` on all items implementing ``Products.CMFCore.interfaces.IContentish``
-(which will be all Archetypes and Dexterity based content types).
+``lineage.index`` registers an index ``childsite`` on all items implementing ``Products.CMFCore.interfaces.IContentish`` (which will be Dexterity based content types).
 
-The childsite's id can be used to search for content located in this childsite.
+The childsite's UID can be used to search for content located in this childsite.
 
 When listing items on the main portal, you can use the metadata-column ``childsite`` to indicate which childsites the content has been aggregated from.
 
@@ -18,30 +17,35 @@ When listing items on the main portal, you can use the metadata-column ``childsi
 How do I use it?
 ----------------
 
-Once installed, new content gets indexed under the id of its closest childsite.
+Once installed, new content gets indexed under the UID of its closest childsite.
 Existing content requires a catalog update (see `Installation`_).
 
 You can search for content within a childsite using the index:
 
 .. code-block:: python
 
-    brains = portal_catalog(childsite='subsite1')
+    brains = portal_catalog(childsite='9df827df17a94ad0aeda278e9570dc88')
 
 Each brain has a metadata column telling which childsite it's located in:
 
 .. code-block:: python
 
     >>> brains[0].childsite
-    'subsite1'
+    '9df827df17a94ad0aeda278e9570dc88'
 
-If the item comes from the main portal (i.e. not inside a childsite), ``None`` will be indexed.
-This allows you to find only content from the main portal:
+If the item comes from the main portal (i.e. not inside a childsite),
+
+- in Plone 5 ``None`` will be indexed.
+- in Plone 6 the UID of the portal will be indexed.
+
+This allows you to find only content from the main portal no belonging to any child site:
 
 .. code-block:: python
 
-    >>> brains = portal_catalog(childsite=None)
-    >>> brains[0].childsite is None
-    True
+    >>> brains = portal_catalog(childsite=None)  # Plone 5.x
+
+    >>> from plone.api import portal
+    >>> brains = portal_catalog(childsite=portal.get().UID())  # Plone 6+
 
 There's also a vocabulary ``lineage.childsites`` listing the available childsites with their title.
 
@@ -59,16 +63,17 @@ To show the title of the subsite of a brain you can use the utility view:
 Installation
 ============
 
-Simply add ``lineage.index`` to your buildout eggs (no zcml slug is needed thanks to z3c.autoinclude).
+Buildout: Add ``lineage.index`` to your buildout ``instance`` section ``eggs = `` and ``zcml = ``.
 
-Install ``Lineage Index`` .
+pip: Add ``lineage.index`` to the requirements and include the ZCML
 
-In case you already have childsites and content that shall be indexed go to ``portal_catalog/manage_catalogAdvanced``.
-Then click the ``Update Catalog`` button to populate the index and the catalog metadata.
+In Plone install ``Lineage Index`` in Site Setup, Extensions.
+
+In case you already have childsites and content that shall be indexed go to ZMI, ``portal_catalog``, ``Advanced``.
+Then click the ``Update Catalog`` button to populate the index and the catalog metadata (this may take a while).
 
 Gotchas
 =======
 
-The vocabulary caches all childsite titles until zope is restarted.
-If you add childsites you need to restart zope to make them show up in the vocabulary.
-
+The vocabulary caches all childsite titles until Zope is restarted.
+If you add childsites you need to restart Zope to make them show up in the vocabulary.

@@ -1,10 +1,11 @@
 Changelog
 =========
 
-1.1 (unreleased)
+1.0.1 (unreleased)
 ----------------
 
-- Nothing changed yet.
+- Fix README
+  [jensens]
 
 
 1.0 (2022-03-11)
