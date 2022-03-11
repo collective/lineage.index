@@ -1,7 +1,7 @@
 Changelog
 =========
 
-1.0 (unreleased)
+1.0 (2022-03-11)
 ----------------
 
 - Add portal to vocabulary in Plone 6.
