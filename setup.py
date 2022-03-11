@@ -2,7 +2,7 @@ from setuptools import find_packages
 from setuptools import setup
 
 
-version = "1.0.1"
+version = "1.0.2.dev0"
 short_description = (
     "Adds an index and metadata that allows to search for "
     "content of a collective.lineage childsite"
