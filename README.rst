@@ -63,9 +63,8 @@ To show the title of the subsite of a brain you can use the utility view:
 Installation
 ============
 
-Buildout: Add ``lineage.index`` to your buildout ``instance`` section ``eggs = `` and ``zcml = ``.
-
-pip: Add ``lineage.index`` to the requirements and include the ZCML
+Install ``lineage.index`` with buildout or pip.
+Ensure to have the ZCML included.
 
 In Plone install ``Lineage Index`` in Site Setup, Extensions.
 
