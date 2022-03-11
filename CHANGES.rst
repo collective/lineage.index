@@ -4,6 +4,9 @@ Changelog
 1.0 (unreleased)
 ----------------
 
+- Add portal to vocabulary in Plone 6.
+  [jensens]
+
 - Fix recursion bug, if a context has no acquisition parent.
   [zworkb]
 

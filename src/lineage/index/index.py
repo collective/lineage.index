@@ -30,10 +30,10 @@ def childsite(obj):
     childsite = getNextChildSite(obj, portal)
 
     if childsite == portal:
-        if IDexterityContent.providedBy(portal):
-            return IUUID(portal)
-        else:
-            return None
+        if not IDexterityContent.providedBy(portal):
+            # in Plone 5 it's been always None, lets keep it.
+            return
+        return IUUID(portal)
 
     if childsite is None:
         raise AttributeError("no childsite found")
